@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Multiple DIV Elements</title>
+    <script src="assignment.js"></script>
+    <style>
+      .box {
+        width: 250px;
+        padding: 15px;
+        border: 2px solid black;
+        margin: 10px;
+        display: inline-block;
+        background: #f4f4f4;
+        text-align: center;
+      }
+      img {
+        width: 120px;
+        height: 120px;
+      }
+      button {
+        margin: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Multiple DIV Elements</h1>
+
+    <div id="container1" class="box">
+      <h2>London</h2>
+      <p id="text1">London is the capital city of England.</p>
+      <p>London has over 9 million inhabitants.</p>
+      <button onclick="hideBox('container1')">Hide</button>
+    </div>
+
+    <div id="container2" class="box">
+      <h2>Oslo</h2>
+      <p id="text2" style="display: none">
+        Oslo is the capital city of Norway.
+      </p>
+      <button onclick="showParagraph('text2')">Show</button>
+    </div>
+
+    <div id="container3" class="box">
+      <h2>Rome</h2>
+      <p id="text3">Rome is the capital city of Italy</p>
+      <p>Rome has over 4 million inhabitants.</p>
+      <button onclick="changeBg('container3')">Hello</button>
+    </div>
+
+    <div id="container4" class="box">
+      <h2>Sicily</h2>
+      <p id="text4">the largest Mediterranean island</p>
+      <button onclick="changeText('text4')">Mediterranean</button>
+    </div>
+    <div id="container5" class="box">
+      <h2>Simple Calculation Example</h2>
+      <p id="text5">Initial text before calculation.</p>
+     <button type="button" onclick="displaySum()">Try it</button>
+    </div>
+
+    <script>
+      function hideBox(id) {
+        document.getElementById("text1").style.display = "none";
+      }
+      function showParagraph(id) {
+        document.getElementById("text2").style.display = "block";
+      }
+      function changeBg(id) {
+        document.getElementById("text3").style.backgroundColor = "yellow";
+      }
+      function changeText(Id) {
+        document.getElementById("text4").innerHTML = "Content Updated!";
+      }
+      function changeText(Id){
+        document.getElementById("text5").innerHTML = "Total Sum"
+      }
+    </script>
+  </body>
+</html>
