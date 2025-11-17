@@ -1,0 +1,75 @@
+/* BASIC STYLE */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar{
+    background:#333;
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Desktop Menu */
+.menu{
+    display:flex;
+    gap:20px;
+}
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+/* Hamburger Icon */
+.hamburger{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    color:white;
+}
+
+/* Mobile Menu */
+.mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:#444;
+    padding:15px;
+}
+.mobile-menu a{
+    color:white;
+    text-decoration:none;
+    padding:10px 0;
+    font-size:18px;
+}
+
+/* -------------------------
+   MEDIA QUERIES
+   ------------------------- */
+
+/* Desktop view (above 800px) */
+@media (min-width:800px){
+    .menu{
+        display:flex;
+    }
+    .hamburger{
+        display:none;
+    }
+    .mobile-menu{
+        display:none !important;
+    }
+}
+
+/* Mobile view (below 600px) */
+@media (max-width:600px){
+    .menu{
+        display:none;
+    }
+    .hamburger{
+        display:block;
+    }
+}
