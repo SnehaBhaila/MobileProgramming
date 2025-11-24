@@ -52,7 +52,7 @@ nav ul li{
 }
 
 /* Mobile View */
-@media(max-width: 400px){
+@media(max-width: 500px){
     .menu{
         display: none;
         flex-direction: column;
