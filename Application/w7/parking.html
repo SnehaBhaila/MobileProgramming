@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking Spot Finder</title>
+
+    <style>
+    
+        body {
+            background: #ddf7df; /* light soft green */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 25px auto;
+        }
+
+        .form-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.15);
+        }
+
+        .form-box input,
+        .form-box select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #7acb84;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2e7d32;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        ul#spotList {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        ul#spotList li {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 0 6px rgba(0,0,0,0.1);
+            border-left: 6px solid #2e7d32;
+        }
+
+        .actions button {
+            width: 48%;
+            padding: 8px;
+            margin-top: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .update-btn {
+            background: #ffca28;
+            color: black;
+        }
+
+        .delete-btn {
+            background: #d50000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 style="text-align:center; color:#2e7d32;">🚗 Parking Spot Finder</h1>
+
+        <div class="form-box">
+            <form id="parkingForm">
+                <input type="hidden" id="recordId">
+
+                <input type="text" id="spotName" placeholder="Parking Spot Name (e.g., A1)" required />
+                <input type="text" id="location" placeholder="Location (e.g., Basement, Block A)" required />
+
+                <select id="status" required>
+                    <option value="">Select Status</option>
+                    <option>Available</option>
+                    <option>Occupied</option>
+                </select>
+
+                <button type="submit">Save Parking Spot</button>
+            </form>
+        </div>
+
+        <ul id="spotList"></ul>
+
+    </div>
+
+    <script type="module" src="parking.js"></script>
+
+</body>
+</html>
