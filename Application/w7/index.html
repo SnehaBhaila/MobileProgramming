@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parking Spot Finder (SPA)</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app-root">
+
+    <!-- Login -->
+    <section id="screen-login" class="screen">
+      <div class="card centered">
+        <img src="Logo.jpg" alt="App Logo" class="logo-img">
+        <h1 class="logo">Parking Spot Finder</h1>
+        <p class="muted">Find & book local parking — powered by Firebase</p>
+        <form id="loginForm" class="form">
+          <input id="loginEmail" type="email" placeholder="Email" required />
+          <input id="loginPassword" type="password" placeholder="Password" required />
+          <button class="primary" type="submit">Sign in</button>
+        </form>
+        <div class="row small">
+          <span>Don't have an account?</span>
+          <a href="#signup" class="link">Create account</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup -->
+    <section id="screen-signup" class="screen">
+      <div class="card centered">
+        <img src="images/logo.jpg" alt="App Logo" class="logo-img">
+        <h2>Create account</h2>
+        <form id="signupForm" class="form">
+          <input id="signupName" type="text" placeholder="Full name" required />
+          <input id="signupEmail" type="email" placeholder="Email" required />
+          <input id="signupPassword" type="password" placeholder="Password (6+ chars)" minlength="6" required />
+          <button class="primary" type="submit">Create account</button>
+        </form>
+        <div class="row small">
+          <span>Already have an account?</span>
+          <a href="#login" class="link">Sign in</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home -->
+    <section id="screen-home" class="screen">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn">☰</button>
+        <div class="title">Find Parking</div>
+        <button id="signOutBtn" class="text-btn">Sign out</button>
+      </header>
+
+      <div class="container">
+        <aside id="sidePanel" class="side-panel">
+          <div class="user">
+            <div class="avatar">
+              <img src="images/user-icon.png" alt="User Avatar" />
+            </div>
+            <div>
+              <div id="userName">User</div>
+              <div id="userEmail" class="muted small">email</div>
+            </div>
+          </div>
+        </aside>
+
+        <div id="map" class="map-card"></div>
+
+        <div class="card">
+          <form id="addForm" class="form-inline">
+            <input id="spotName" type="text" placeholder="Spot name (e.g., A1)" required />
+            <input id="spotLocation" type="text" placeholder="Location (e.g., Main St)" required />
+            <select id="spotStatus">
+              <option value="available">Available</option>
+              <option value="occupied">Occupied</option>
+            </select>
+            <button class="primary small" type="submit">Add</button>
+            <button id="pickLocationBtn" type="button" class="secondary small">Pick on map</button>
+          </form>
+
+          <div id="spotsCount" class="muted small">0 spots</div>
+          <div id="spotsList" class="list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section id="screen-details" class="screen">
+      <header class="topbar">
+        <button id="backFromDetails" class="icon-btn">←</button>
+        <div class="title">Parking Spot Details</div>
+        <div style="width:44px"></div>
+      </header>
+      <div class="container">
+        <div class="card">
+          <h3 id="detailName">Spot Name</h3>
+          <p id="detailLocation" class="muted">Location</p>
+          <p id="detailStatus" class="muted">Status</p>
+
+          <div class="row">
+            <button id="bookBtn" class="primary">Book Spot</button>
+            <button id="editBtn" class="secondary">Edit</button>
+            <button id="deleteBtn" class="danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success -->
+    <section id="screen-success" class="screen">
+      <div class="card centered">
+        <div class="check">✓</div>
+        <h2>Booking Confirmed</h2>
+        <p class="muted">Your booking has been recorded.</p>
+        <button id="doneBtn" class="primary">Back to home</button>
+      </div>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Firebase config (your file) -->
+  <script type="module" src="firebase.js"></script>
+
+  <!-- App logic -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
